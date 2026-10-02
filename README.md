@@ -51,9 +51,11 @@ The plugin registers a `telnyx` realtime transcription provider over `wss://api.
 
 The Telnyx engine emits exactly one final transcript after audio stops (no interim frames). For interim results, switch the engine (for example `Deepgram`) and enable `interimResults`.
 
+The provider is consumed by OpenClaw voice surfaces. Talk selects it with `talk.provider` and reads per-provider settings from `talk.providers.telnyx`; voice calls read `plugins.entries.voice-call.config.streaming.providers.telnyx`:
+
 ```json
 {
-  "realtimeTranscription": {
+  "talk": {
     "providers": {
       "telnyx": {
         "engine": "Telnyx",
